@@ -1,0 +1,41 @@
+def main():
+	G = read_graph()
+	start = input(" З якої вершини почати обхід?")
+	while start not in G:
+		start = input(" Такої вершини немає.")
+	shortest_distances = dijkstra(G, start)
+	finish = input("До якої вершини будувати граф?")
+	while start not in G:
+		start = input("Такої вершини в графі немає. До якої вершини будувати граф?")
+		shortest_path = reveal_shortest_path(G, start, finish, shortest_distances)
+def read_graph():
+    M = int(input()) #  M -кількість ребер
+    G = {} # словник словників
+    for i in range(M):
+        a, b, weight = input(). split()         # конструювання не орієнтованого графа
+        weight = float(weight)
+        add_edge(G, a, b, weight)
+        add_edge(G, b, a, weight)
+    return G
+def add_edge(G, a, b, weight):
+    if a not in G:
+        G[a] = {b: weight}
+    else:
+        G[a][b] = weight
+def dijkstra(G, start):
+    Q = dequel()
+    s = {} # словник найкоротших відстаней
+    s[start] = 0
+    Q.push(start)
+    while Q:
+        v = Q.pop()
+        for u in G[v]:
+            if u not in s or s[v]+G[v][u]<s[u]:
+                s[u] = s[v]+G[v][u]
+                Q.push(u)
+if __name__ == " __main__":
+    main()
+        
+    
+
+    
