@@ -1,0 +1,9 @@
+def raw_input():
+    for i in range(4):
+        inputs = map(lambda x:int(x),raw_input().split(','))
+        list = []
+        for j in range(inputs[0]):
+            list.append(map(lambda x:x+j*inputs[1]+1,range(inputs[1])))
+            print(list)
+
+input()

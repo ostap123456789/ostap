@@ -1,0 +1,20 @@
+import re                                                                  # module of regular expressions
+password = input("Write your transaction password:")
+x = True
+while x:
+    if (len(password) < 4 or len(password) > 6):
+        break
+    elif not re.search("[a-z]", password):          """we can interpret [a-z],[0-9],[$#@] as lists(list - data structure)
+        break                                                                    and use cycle "for" to iterate all elements in lists with "if" to 
+    elif not re.search("[0-9]", password):               get appropriateness in "password-elements of lists"(but it takes tasks         
+        break                                                                    more complicated with conduct " str " and " int " types to check the  
+    elif not re.search("[$#@]", password):           data of password)"""
+        break
+    elif re.search("\s", password):
+        break
+    else:
+        print("The password is valid:", password)
+        x = False
+        break
+if x:
+    print("The password is not valid")
